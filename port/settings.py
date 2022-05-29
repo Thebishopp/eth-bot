@@ -125,5 +125,5 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CRONJOBS = [
-    ('*/1 * * * *', 'stock_data.stock_bot')
+    ('* * * * *', 'port.cronapp.cron.stock_bot')
 ]

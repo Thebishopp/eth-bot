@@ -41,9 +41,10 @@ def stock_bot():
             cur.execute("""INSERT INTO transacciones(p_compra, p_accion, balance)
             VALUES(%s, %s, %s)""" % (ult_precio, ult_precio, balance))
     else:
-        log = open('log.txt', 'w')
-        log.write('done /n')
+        log = open('log.txt', 'a')
+        log.write('done \n')
         print("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
+        log.close()
         for i in inventario:
                 if (i/ante_precio) >= 1.1:
                     ult_compra = primer_item.fetchone()
@@ -57,42 +58,4 @@ def stock_bot():
                         """) % (ult_compra, ult_precio, i, balance)
                 else:
                     print(balance)
-        a = log.write('nose'), log.close()
-    return  a
-
-stock_bot()
-
-# stock_bot()
-
-
-# #declare figure
-# fig = go.Figure()
-
-# #Candlestick
-# fig.add_trace(go.Candlestick(x=data.index,
-#                 open=data['Open'],
-#                 high=data['High'],
-#                 low=data['Low'],
-#                 close=data['Close'], name = 'market data'))
-
-# # Add titles
-# fig.update_layout(
-#     title='JPM live share price evolution',
-#     yaxis_title='Stock Price (USD per Shares)')
-
-# # X-Axes
-# fig.update_xaxes(
-#     rangeslider_visible=True,
-#     rangeselector=dict(
-#         buttons=list([
-#             dict(count=15, label="15m", step="minute", stepmode="backward"),
-#             dict(count=45, label="45m", step="minute", stepmode="backward"),
-#             dict(count=1, label="HTD", step="hour", stepmode="todate"),
-#             dict(count=3, label="3h", step="hour", stepmode="backward"),
-#             dict(step="all")
-#         ])
-#     )
-# )
-
-# #Show
-# fig.show()
+    return 
