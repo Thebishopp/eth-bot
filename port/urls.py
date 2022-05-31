@@ -17,10 +17,10 @@ from django.contrib import admin
 from django.urls import path
 from threading import Thread
 import subprocess
-from port.views import indice, task
+from port.views import download, indice
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', indice),
-    path('api/', task)
+    path('download/', download),
 ]
