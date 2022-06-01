@@ -55,7 +55,7 @@ while True:
                         inventario.remove(i)
                         print(inventario)
                         balance = balance + venta
-                        print("Venta realiazada!: +%s Balance: %s" % (i, balance))
+                        print("Venta realiazada!: +%s Balance: %s" % (venta, balance))
                         #Insertamos la transacción en la base de datos
                         cur.execute("""INSERT INTO transacciones VALUES(CURRENT_TIMESTAMP, '{0}', {1}, {2}, {3})""".format('venta', venta, i, balance))
                         con.commit()
@@ -63,7 +63,7 @@ while True:
                     if not inventario:
                             print('######PASO COMPRA:##############')
                             inventario.append(compra)
-                            print("Compra realiazada!222: %s" % compra)
+                            print("Compra realiazada!: %s" % compra)
                             print(inventario)
                             balance = balance - compra
                             cur.execute("""INSERT INTO transacciones
